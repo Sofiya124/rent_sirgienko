@@ -1,0 +1,56 @@
+﻿<Window x:Class="rent_vyborov.Captcha"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:rent_vyborov"
+        mc:Ignorable="d"
+        Height="260" Width="300"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Icon="Resources/icon.ico"
+        Background="Transparent"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        ResizeMode="NoResize"
+        Loaded="Window_Loaded"
+        WindowStartupLocation="CenterScreen"
+        MouseLeftButtonDown="Window_MouseLeftButtonDown">
+    
+    <Border Background="#FFFFFF" CornerRadius="30">
+        <Grid>
+            <StackPanel>
+                <TextBlock Text="Введите текст с картинки" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Montserrat" FontWeight="SemiBold" FontSize="20" Margin="0 10 0 0" Foreground="Black"/>
+                <TextBlock Text="captcha" Opacity="0.3" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Montserrat" FontWeight="SemiBold" FontSize="11"  Foreground="Black"/>
+                <Grid Margin="10">
+                    <Image Source="Resources/white_noise.jpg" Height="55px" Width="170px" Stretch="Fill">
+                    </Image>
+                    <TextBlock x:Name="sybol_one" Margin="0 0 70 18" Text="A" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Montserrat" FontWeight="SemiBold" FontSize="30" Foreground="Gray"/>
+                    <TextBlock x:Name="sybol_two" Margin="0 18 0 0" Text="A" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Montserrat" FontWeight="SemiBold" FontSize="30" Foreground="Gray"/>
+                    <TextBlock x:Name="sybol_three" Margin="70 0 0 0" Text="A" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Montserrat" FontWeight="SemiBold" FontSize="30" Foreground="Gray"/>
+
+                    <Button x:Name="btn_recaptcha" Click="btn_recaptcha_Click" Background="Transparent" Style="{StaticResource border_auth}" Cursor="Hand" Height="20px" Width="20px" HorizontalAlignment="Right" Margin="0 0 30 0">
+                        <Image Source="Resources/recaptcha.png" Stretch="Fill"/>
+                    </Button>
+                </Grid>
+                
+                <Grid>
+                    <Border Background="#93d14f" Height="55px" Width="170px"  HorizontalAlignment="Center" CornerRadius="10"/>
+                    <TextBox MaxLength="3" Width="170px" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" materialDesign:HintAssist.Hint="ОТВЕТ" materialDesign:HintAssist.HintOpacity="1" Name="tb_result" Background="Transparent" FontFamily="Montserrat" FontWeight="SemiBold" FontSize="20" Foreground="White" VerticalAlignment="Center" TextAlignment="Center" Cursor="Hand" SelectionOpacity="0" BorderThickness="0">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type materialDesign:SmartHint}">
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                </Grid>
+
+                <Button Margin="0 10 0 0" Name="btn_check" Click="btn_check_Click" Style="{StaticResource visible_button}" Cursor="Hand">
+                    <Grid>
+                        <Border Background="#319d3a" Height="55px" Width="170px"  HorizontalAlignment="Center" CornerRadius="10"/>
+                        <TextBlock Background="Transparent" Text="Проверить" FontFamily="Montserrat" FontWeight="SemiBold" FontSize="20" Foreground="White" Margin="78,15,78,15" TextAlignment="Center" Cursor="Hand"/>
+                    </Grid>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

@@ -1,0 +1,24 @@
+﻿<Page x:Class="rent_vyborov.history_page"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:rent_vyborov"
+      mc:Ignorable="d" 
+      Height="500"
+      Width="850"
+      Background="White"
+      Loaded="Page_Loaded"
+      Title="history_page">
+
+    <Grid>
+        <DataGrid Name="data" AutoGenerateColumns="True" Height="450" Width="530" Margin="0 0 220 0" IsReadOnly="True"/>
+        <ComboBox x:Name="login" HorizontalAlignment="Right" VerticalAlignment="Top" Width="160" IsSynchronizedWithCurrentItem="True" Margin="0 30 45 0"/>
+        <Button Margin="0 70 50 0" VerticalAlignment="Top" HorizontalAlignment="Right" Style="{StaticResource visible_button}" Cursor="Hand" Name="btn_search" Click="btn_search_Click">
+            <Grid>
+                <Border Background="#319d3a" Height="40px" Width="150px" HorizontalAlignment="Center" CornerRadius="10"/>
+                <TextBlock Background="Transparent" Text="Обновить" VerticalAlignment="Center" FontFamily="Montserrat" FontWeight="SemiBold" FontSize="20" Foreground="White" TextAlignment="Center" Cursor="Hand"/>
+            </Grid>
+        </Button>
+    </Grid>
+</Page>

@@ -1,0 +1,69 @@
+﻿<Page x:Class="rent_vyborov.report_panel"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:rent_vyborov"
+      mc:Ignorable="d" 
+      xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      Height="500"
+      Width="850"
+      Loaded="Page_Loaded"
+      Background="White"
+      Title="report_panel">
+
+    <Grid>
+
+        <lvc:CartesianChart x:Name="chart1" Margin="340,20,10,10" Visibility="Visible"/>
+        <lvc:CartesianChart x:Name="chart2" Margin="340,20,10,10" Visibility="Hidden"/>
+
+        <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="58 40 0 0" Name="btn_graf" Click="btn_graf_Click" Style="{StaticResource visible_button}" Cursor="Hand">
+            <Grid>
+                <Border Background="#319d3a" x:Name="br_graf" Height="44px" Width="130px"  HorizontalAlignment="Center" CornerRadius="10 0 0 10"/>
+                <TextBlock Background="Transparent" Text="График" FontFamily="Montserrat" FontWeight="SemiBold" FontSize="20" Foreground="White" VerticalAlignment="Center" TextAlignment="Center" Cursor="Hand"/>
+            </Grid>
+        </Button>
+
+        <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="188 40 0 0" Name="btn_table" Click="btn_table_Click" Style="{StaticResource visible_button}" Cursor="Hand">
+            <Grid>
+                <Border Background="#93d14f" x:Name="br_table" Height="44px" Width="130px"  HorizontalAlignment="Center" CornerRadius="0 10 10 0"/>
+                <TextBlock Background="Transparent" Text="Таблица" FontFamily="Montserrat" FontWeight="SemiBold" FontSize="20" Foreground="White" VerticalAlignment="Center" TextAlignment="Center" Cursor="Hand"/>
+            </Grid>
+        </Button>
+        <TextBlock VerticalAlignment="Center" Margin="60 0 0 280" Text="Список услуг" FontFamily="Montserrat" FontWeight="SemiBold" FontSize="20" Foreground="Black"/>
+        <ComboBox x:Name="services" HorizontalAlignment="Left" VerticalAlignment="Center" Width="250" IsSynchronizedWithCurrentItem="True" Margin="60 0 0 220"/>
+        
+        <StackPanel HorizontalAlignment="Left" Margin="20 0 0 0" VerticalAlignment="Center">
+            <Grid Margin="0 0 0 10">
+                <TextBlock Margin="0 10 300 0" Text="От:" FontFamily="Montserrat" FontWeight="SemiBold" FontSize="20" Foreground="Black"/>
+                <Border Background="#93d14f" Height="44px" Width="260px"  CornerRadius="10"/>
+                <DatePicker materialDesign:TextFieldAssist.DecorationVisibility="Hidden" materialDesign:HintAssist.HintOpacity="1" Name="date_start" Background="Transparent" FontFamily="Montserrat" FontWeight="SemiBold" FontSize="20" Foreground="Black" Width="220" Cursor="Hand" BorderThickness="0"/>
+            </Grid>
+            
+            <Grid>
+                <TextBlock Margin="0 10 300 0" Text="До:" FontFamily="Montserrat" FontWeight="SemiBold" FontSize="20" Foreground="Black"/>
+                <Border Background="#93d14f" Height="44px" Width="260px" CornerRadius="10"/>
+                <DatePicker materialDesign:TextFieldAssist.DecorationVisibility="Hidden" materialDesign:HintAssist.HintOpacity="1" Name="date_end" Background="Transparent" FontFamily="Montserrat" FontWeight="SemiBold" FontSize="20" Foreground="Black" Width="220" Cursor="Hand" BorderThickness="0"/>
+            </Grid>
+        </StackPanel>
+
+        <Button HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="338" Margin="16 0 0 130" Name="btn_create" Click="btn_create_Click" Style="{StaticResource visible_button}" Cursor="Hand">
+            <Grid>
+                <Border Background="#319d3a" Height="44px" Width="260px"  HorizontalAlignment="Center" CornerRadius="10"/>
+                <TextBlock Background="Transparent" Text="Сформировать" FontFamily="Montserrat" FontWeight="SemiBold" FontSize="20" Foreground="White" VerticalAlignment="Center" TextAlignment="Center" Cursor="Hand"/>
+            </Grid>
+        </Button>
+        <Button HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="338" Margin="16 0 0 75" Name="btn_pdf" Style="{StaticResource visible_button}" Cursor="Hand">
+            <Grid>
+                <Border Background="#319d3a" Height="44px" Width="260px"  HorizontalAlignment="Center" CornerRadius="10"/>
+                <TextBlock Background="Transparent" Text="Выгрузить документ PDF" FontFamily="Montserrat" FontWeight="SemiBold" FontSize="20" Foreground="White" VerticalAlignment="Center" TextAlignment="Center" Cursor="Hand"/>
+            </Grid>
+        </Button>
+        <ComboBox x:Name="types" FontFamily="Montserrat" FontWeight="SemiBold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="250" IsSynchronizedWithCurrentItem="True" Margin="60 0 0 35" Cursor="Hand">
+            <ComboBoxItem IsSelected="True">Только график</ComboBoxItem>
+            <ComboBoxItem>Только таблица</ComboBoxItem>
+            <ComboBoxItem>Таблица и график</ComboBoxItem>
+        </ComboBox>
+    </Grid>
+</Page>
